@@ -1,0 +1,9 @@
+Bash_aliases automations by 6hoursdaily
+
+How to use db_recreate
+
+1. Create your bash_aliases file (if your already have one, simply open it up).
+2. copy and paste the contents of db_recreate to your bash_aliases file then Save.
+3. Reopen your terminal. Existing terminals should be closed for the new code to take effect.
+
+

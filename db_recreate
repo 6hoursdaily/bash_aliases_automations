@@ -1,0 +1,35 @@
+# bash database recreate automation for rails projects
+# by 6hoursdaily
+# last updated 20110317
+
+function db_recreate {
+  echo "show databases;" | mysql -u root
+  echo ""
+  echo -n "SELECT FROM ABOVE THE DATABASE YOU WANT RECREATE> "
+  read selected_db
+  mysql -u root -e "DROP DATABASE $selected_db"
+  mysql -u root -e "CREATE DATABASE $selected_db"
+	echo ""
+
+	if [[ $1 == "" ]]; then
+  	echo -n "PERFORM MIGRATION?(y/n)> "
+	  read do_migration
+
+	  if [[ $do_migration == y ]]; then
+      rake db:migrate
+      echo ""
+    fi
+
+  elif [[ $1 == y ]]; then
+    rake db:migrate
+    echo ""
+  fi
+  
+  echo ""
+  ls db/dump
+  echo ""
+  echo -n "SELECT FROM ABOVE YOUR DATABASE DUMP REPLACEMENT> "
+  read ans
+  mysql -u root $selected_db < db/dump/$ans
+
+}
