@@ -1,8 +1,11 @@
 Bash_aliases automations by 6hoursdaily
 
 "Database recreation script for Rails projects"
+"Chromium/Google Chrome flash saving script"
 
-How to us db_recreate for Rails:
+How to these scripts:
 1. Create your bash_aliases file (if your already have one, simply open it up).
 2. copy and paste the contents of db_recreate to your bash_aliases file then Save.
 3. Reopen your terminal. Existing terminals should be closed for the new code to take effect.
+
+Note: if using oh-my-zsh, copy the scripts in your ~/.zshrc file.
