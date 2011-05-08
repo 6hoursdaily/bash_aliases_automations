@@ -21,8 +21,7 @@ function save_Chrome_flash {
 
   function refresh_list {
     ls -clhtrAS --color f_* | tail
-    echo -n "refresh list (y/n)? "
-    read ans
+    choose_flash_cmd
     if [[ $ans == "y" ]]; then
       clear
       refresh_list
@@ -64,7 +63,7 @@ function save_Chrome_flash {
       copy_flash_file
     elif [[ $ans == 2 ]]; then
       play_flash_file
-    elif [[ $ans == 3 ]]; then
+    elif [[ $ans == 3 || $ans == "" ]]; then
       refresh_list
     else
       echo "Did you mean 'y' or 'n'? "
