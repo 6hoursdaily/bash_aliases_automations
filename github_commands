@@ -1,0 +1,17 @@
+# add this to your aliases or .zshrc file
+
+# headers (delete if pushing to repository)
+# to add your token, replace '<token>' with your token from Github under Account Settings > Account Admin
+GITHUB_TOKEN=<token> #place your token here.
+
+function github_newrepo {
+  echo -n "Username: "
+  read user_ans
+  echo -n "Repo name: "
+  read repo_ans
+  curl -F "login=$user_ans" -F "token=$GITHUB_TOKEN" https://github.com/api/v2/yaml/repos/create -F name=$repo_ans
+  echo "...pushing to new repository $repo_ans"
+  git remote add origin git@github.com:$user_ans/$repo_ans.git
+  git push -u origin master
+  echo 'done'
+}
