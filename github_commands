@@ -4,6 +4,7 @@
 # to add your token, replace '<token>' with your token from Github under Account Settings > Account Admin
 GITHUB_TOKEN=<token> #place your token here.
 
+# create a new github repo from CLI and push then track your project to the new repo
 function github_newrepo {
   echo -n "Username: "
   read user_ans
